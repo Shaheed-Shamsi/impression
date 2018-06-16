@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, ImageBackground } from 'react-native';
 import Log from './src/Log'
 import Main from './src/Main'
+import NewEntry from './src/NewEntry'
 import { createStackNavigator } from 'react-navigation';
 
 
@@ -29,6 +29,15 @@ const StackNav = createStackNavigator({
       ...header,
       headerTintColor: 'white',
       title: 'Log History',
+      headerStyle: { backgroundColor: 'black', borderWidth: 1, height: 60 },
+    })
+  },
+  NewEntry: {
+    screen: NewEntry,
+    navigationOptions: ({ navigation, header }) => ({
+      ...header,
+      headerTintColor: 'white',
+      title: 'New Entry',
       headerStyle: { backgroundColor: 'black', borderWidth: 1, height: 60 },
     })
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, ImageBackground, View, Text, Button } from 'react-native';
+import { StyleSheet, ImageBackground, View, Button } from 'react-native';
 
 export default class Main extends React.Component {
   render() {
@@ -34,6 +34,5 @@ const styles = StyleSheet.create({
   },
   btnView: {
     paddingBottom: 200,
-    // color: 'white'
   }
 });
