@@ -3,12 +3,15 @@ import Log from './src/Log'
 import Main from './src/Main'
 import NewEntry from './src/NewEntry'
 import { createStackNavigator } from 'react-navigation';
-
+import { Provider } from 'react-redux'
+import store from './store/reducer'
 
 class App extends React.Component {
   render() {
     return (
-      <StackNav />
+      <Provider store={store}>
+        <StackNav />
+      </Provider>
     );
   }
 }
@@ -43,5 +46,5 @@ const StackNav = createStackNavigator({
   }
 })
 
-export default StackNav
+export default App
 

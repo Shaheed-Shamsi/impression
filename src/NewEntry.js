@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { addEntry } from '../store/reducer'
+import { connect } from 'react-redux'
 
-export default class Log extends React.Component {
+class NewEntry extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -23,9 +24,15 @@ export default class Log extends React.Component {
     })
   }
 
-  handleClick = (event) => {
-    
+  handleSubmit = () => {
+    let obj = {
+      date: this.state.newDate,
+      text: this.state.newEntry
+    }
+    this.props.addEntryMethod(obj)
+    this.props.navigation.navigate('Log')
   }
+
   render() {
     return (
       <View style={styles.ViewWrap}>
@@ -47,16 +54,25 @@ export default class Log extends React.Component {
           placeholder='Add a new entry here!'
           />
         </View>
-        <Text>{this.state.newEntry}</Text>
         <Button
         title='Add'
         style={styles.newEntryBtn}
-        onPress={() => this.props.navigation.navigate('Log')}
+        onPress={this.handleSubmit}
         />
       </View>
     );
   }
 }
+
+const mapDispatch = (dispatch) => {
+  return {
+    addEntryMethod: (entry) => dispatch(addEntry(entry))
+  }
+}
+
+export default connect(null, mapDispatch)(NewEntry)
+
+
 
 const styles = StyleSheet.create({
   ViewWrap: {

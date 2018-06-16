@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
+import { connect } from 'react-redux'
 
-export default class Log extends React.Component {
+class Log extends React.Component {
   constructor() {
     super();
   }
@@ -13,7 +14,16 @@ export default class Log extends React.Component {
   render() {
     return (
       <ScrollView style={styles.scrollWrap}>
-        <Text>weeee!</Text>
+      {
+        this.props.allEntry.map(entry => {
+          return (
+            <View key={entry.date}>
+              <Text>{entry.date}</Text>
+              <Text>{entry.text}</Text>
+            </View>
+          )
+        })
+      }
         <Button
         title='New Entry'
         style={styles.newEntryBtn}
@@ -23,6 +33,14 @@ export default class Log extends React.Component {
     );
   }
 }
+
+const mapState = (state) => {
+  return {
+    allEntry: state.allEntry
+  }
+}
+
+export default connect(mapState)(Log)
 
 const styles = StyleSheet.create({
   scrollWrap: {
