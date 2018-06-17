@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     backgroundColor: 'white',
     borderRadius: 5,
-    // color: 'red',
     borderWidth: 1
   },
   dateInput: {
@@ -109,7 +108,6 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderRadius: 5,
     backgroundColor: 'white',
-    // color: 'red',
     borderWidth: 1
   },
   input: {

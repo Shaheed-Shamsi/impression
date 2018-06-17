@@ -2,6 +2,7 @@ import React from 'react';
 import Log from './src/Log'
 import Main from './src/Main'
 import NewEntry from './src/NewEntry'
+import SingleEntry from './src/SingleEntry'
 import { createStackNavigator } from 'react-navigation';
 import { Provider } from 'react-redux'
 import store from './store/reducer'
@@ -22,7 +23,7 @@ const StackNav = createStackNavigator({
     navigationOptions: ({ navigation, header }) => ({
       ...header,
       headerTintColor: 'white',
-      title: 'Impressions',
+      title: 'Welcome',
       headerStyle: { backgroundColor: 'black', borderWidth: 1, height: 60 },
     })
   },
@@ -41,6 +42,15 @@ const StackNav = createStackNavigator({
       ...header,
       headerTintColor: 'white',
       title: 'New Entry',
+      headerStyle: { backgroundColor: 'black', borderWidth: 1, height: 60 },
+    })
+  },
+  SingleEntry: {
+    screen: SingleEntry,
+    navigationOptions: ({ navigation, header }) => ({
+      ...header,
+      headerTintColor: 'white',
+      title: 'Log History',
       headerStyle: { backgroundColor: 'black', borderWidth: 1, height: 60 },
     })
   }
