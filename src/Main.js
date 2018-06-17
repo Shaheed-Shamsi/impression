@@ -43,6 +43,5 @@ const styles = StyleSheet.create({
   },
   btnView: {
     paddingBottom: 200,
-    
   }
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
-import { addEntry } from '../store/reducer'
+import { addEntryThunk } from '../store/reducer'
 import { connect } from 'react-redux'
 
 class NewEntry extends React.Component {
@@ -66,7 +66,7 @@ class NewEntry extends React.Component {
 
 const mapDispatch = (dispatch) => {
   return {
-    addEntryMethod: (entry) => dispatch(addEntry(entry))
+    addEntryMethod: (entry) => dispatch(addEntryThunk(entry))
   }
 }
 

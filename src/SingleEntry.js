@@ -9,9 +9,15 @@ class Single extends React.Component {
     const { navigation } = this.props
     const entryDate = navigation.getParam('date', 'no input')
     const entryText = navigation.getParam('text', 'no input')
+    const entryPolarity = navigation.getParam('polarity', 'no input')
+    const entryBackground = navigation.getParam('backGround', 'no input')
 
     return (
-      <View style={styles.outerViewWrap}>
+      <View style={{
+        flex: 1,
+        justifyContent: 'center',
+        backgroundColor: entryBackground
+      }}>
         <View style={styles.viewWrap}>
           <Text style={styles.entryDate}>{entryDate}</Text>
           <Text>{entryText}</Text>
@@ -30,11 +36,6 @@ const mapState = (state) => {
 export default connect(mapState)(Single)
 
 const styles = StyleSheet.create({
-  outerViewWrap: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#bed4f7'
-  },
   viewWrap: {
     paddingLeft: 20,
     paddingRight: 20,
